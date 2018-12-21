@@ -1,0 +1,15 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spider\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spider\\": "src/Tests/"
+        }
+    }
+}
