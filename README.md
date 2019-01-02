@@ -9,5 +9,5 @@ a doctrine entity and metadata
 
 To test this library, you need to execute the following command
 
-´.\vendor\bin\phpunit src/Tests/AbstractModelTest.php´
+´.\vendor\bin\phpunit src/Tests´
 
