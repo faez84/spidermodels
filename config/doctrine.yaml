@@ -1,0 +1,17 @@
+doctrine:
+    dbal:
+        default_connection: acme_mysql
+        connections:
+            acme_mysql:
+                host: localhost
+                dbname: mydb
+                user: user
+                password:
+                charset:  UTF8
+orm: #optional if you want to map some entity in doctrine2
+    default_entity_manager: acme_mysql
+    entity_managers:
+        em_mysql:
+            connection: acme_mysql
+            mappings:
+                AcmeMysqlBundle: ~

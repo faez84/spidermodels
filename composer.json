@@ -26,5 +26,10 @@
         "psr-4": {
             "Spider\\": "src/Tests/"
         }
+    },
+    "require": {
+        "doctrine/common": "^2.10",
+        "doctrine/dbal": "^2.9",
+        "doctrine/orm": "^2.6"
     }
 }
