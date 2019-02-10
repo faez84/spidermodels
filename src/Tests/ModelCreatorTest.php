@@ -2,7 +2,6 @@
 
 namespace Spider\Tests;
 
-
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Configuration;
 use Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand;
@@ -21,15 +20,5 @@ class ModelCreatorTest extends TestCase
     public function setup()
     {
         $this->modelCreator = new ModelCreator();
-    }
-
-    public function testSetNameSpace()
-    {
-        $this->assertTrue($this->modelCreator->setNameSpace('Spider\\Models'));
-    }
-
-    public function testGetModel()
-    {
-        $this->assertInstanceOf(Model::class, $this->modelCreator->getModel('Spider\Models\Model', 'GeneralEntity'));
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Spider\Tests;
 
-
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Configuration;
 use Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand;
@@ -36,10 +35,10 @@ class AbstractModelTest extends TestCase
 
     public function tearDown()
     {
-       if ($this->connectDB->getConnection()->isTransactionActive()) {
-           $this->connectDB->getConnection()->rollBack();
-       }
-       $this->connectDB->getConnection()->close();
+        if ($this->connectDB->getConnection()->isTransactionActive()) {
+            $this->connectDB->getConnection()->rollBack();
+        }
+        $this->connectDB->getConnection()->close();
     }
 
     public function testInsert()
@@ -91,7 +90,7 @@ class AbstractModelTest extends TestCase
 
     public function testGetEntity()
     {
-        $this->assertEquals(GeneralEntity::class, get_class($this->model->getEntity()) );
+        $this->assertEquals(GeneralEntity::class, get_class($this->model->getEntity()));
     }
 
     public function testSetGroupValidation()

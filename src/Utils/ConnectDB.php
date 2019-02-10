@@ -9,11 +9,9 @@ use Doctrine\ORM\EntityManager;
 
 class ConnectDB
 {
-
     private static $_singleton;
     private $_connection;
     private $entityManager;
-
 
     /**
      * ConnectDB constructor.
@@ -33,13 +31,20 @@ class ConnectDB
         $this->_connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
         $this->entityManager = EntityManager::create($this->_connection, $config);
          register_shutdown_function(array(&$this, 'close'));
-
     }
-    public  function getConnection()
+
+    /**
+     * @return \Doctrine\DBAL\Connection
+     */
+    public function getConnection()
     {
         return $this->_connection;
     }
-    public  function getEntityManager()
+
+    /**
+     * @return EntityManager
+     */
+    public function getEntityManager()
     {
         return $this->entityManager;
     }
