@@ -2,13 +2,12 @@
 
 namespace Spider\Models;
 
-
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManager;
 use Spider\Utils\ConnectDB;
 
-Abstract class AbstractModel
+abstract class AbstractModel
 {
     /** @var  string */
     protected $modelName;
@@ -109,18 +108,15 @@ Abstract class AbstractModel
         $this->entityManager->remove($this->entity);
         $this->entityManager->flush($this->entity);
         return true;
-
     }
 
     /**
      * @param int $id
      */
-    public function find($id)
+    public function find(int $id)
     {
         if (is_array($id)) {
-
             $this->entity = $this->entityManager->getRepository(get_class($this->entity))->findBy($id)[0];
-
         } elseif (is_int($id)) {
             $this->entity = $this->entityManager->getRepository(get_class($this->entity))->find($id);
         }
@@ -144,9 +140,12 @@ Abstract class AbstractModel
     {
         return implode(',', array_filter(array_map(
             function ($fields) {
-                if (isset($fields['list']) && $fields['list']&& $fields['type'] !== 'CollectionType')
+                if (isset($fields['list']) && $fields['list']&& $fields['type'] !== 'CollectionType') {
                     return $this->aliasName . '.' . $fields['name'];
-            }, $this->fields), 'strlen'));
+                }
+            },
+            $this->fields
+        ), 'strlen'));
     }
 
     /**
@@ -156,8 +155,9 @@ Abstract class AbstractModel
     {
         return
             array_map(function ($fields) {
-                if (isset($fields['list']) && $fields['list'])
-                    return  $fields;
+                if (isset($fields['list']) && $fields['list']) {
+                    return $fields;
+                }
             }, $this->fields);
     }
 
@@ -168,8 +168,9 @@ Abstract class AbstractModel
     {
         return
             array_filter(array_map(function ($fields) {
-                if (isset($fields['addEdit']) && $fields['addEdit'])
-                    return  $fields;
+                if (isset($fields['addEdit']) && $fields['addEdit']) {
+                    return $fields;
+                }
             }, $this->fields));
     }
 
