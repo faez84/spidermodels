@@ -215,7 +215,7 @@ abstract class AbstractModel
      * @param int $modelId
      * @return mixed
      */
-    public function callBackFunction(string $callbackFunction, $modelId = null)
+    public function callBackFunction(string $callbackFunction, int $modelId = null)
     {
         return $this->{$callbackFunction}($modelId);
     }
